@@ -1,11 +1,17 @@
 from turtle import *
+from random import randint
 import random
+import turtle
 
+setup( width = 1375, height = 775, startx = None, starty = None)
+screen = turtle.Screen()
 bob = Turtle()
 ben = Turtle()
 bartosz = Turtle()
 bartoleme = Turtle()
 extra = Turtle()
+screen.bgcolor("black")
+colormode(255)
 
 def draw_star(x, y, points, line, fill, theone):
 
@@ -91,9 +97,9 @@ if version == "random":
     hermit.pensize(10)
     crab.pensize(10)
     bunny.pensize(10)
-    
+
     annie.shape("turtle")
-    annie.color("violet")
+    annie.pencolor("violet")
 
     anders.shape("turtle")
     anders.color("purple")
@@ -145,6 +151,7 @@ if version == "random":
 
 elif version == "controlled":
     billbob = Turtle()
+    benten = Turtle()
     setup(500, 500)
     Screen()
     title("Turtle Keys")
@@ -154,6 +161,8 @@ elif version == "controlled":
     billbob.penup()
     billbob.goto(100, 250)
     billbob.pendown()
+    billbob.width(10)
+
     def up():
         billbob.fd(45)
 
@@ -166,35 +175,118 @@ elif version == "controlled":
     def back():
         billbob.bk(45)
 
-    def quitTurtles():
-        billbob.bye()
-
     def changeColor1():
-        billbob.color("red")
-
+        billbob.color(255, 0, 0)
+        
     def changeColor2():
-        billbob.color("orange")
+        billbob.color(	255, 140, 0)
 
     def changeColor3():
-        billbob.color("yellow")
+        billbob.color(255, 255, 0)
 
     def changeColor4():
-        billbob.color("green")
+        billbob.color(127, 255, 0)
 
     def changeColor5():
-        billbob.color("blue")
+        billbob.color(0, 0, 255)
 
     def changeColor6():
-        billbob.color("indigo")
+        billbob.color(138, 43, 226)
 
     def changeColor7():
-        billbob.color("violet")
+        billbob.color(153, 50, 204)
+
+    def changeColor8():
+        billbob.color(0, 255, 255)
+
+    def changeColor9():
+        billbob.color(	255, 20, 147)
+
+    def changeColor10():
+        billbob.color(	176, 224, 230)
+
+    def changeColor11():
+        billbob.color(205, 201, 201)
+
+    def changeColor12():
+        billbob.color(49, 79, 79)
+
+    def draw_square():
+        billbob.color("red")
+        billbob.forward(100)
+        billbob.right(90)
+        billbob.forward(100)
+        billbob.back(100)
+        billbob.left(90)
+        billbob.back(200)
+        billbob.left(90)
+        billbob.forward(100)
+        billbob.back(100)
+        billbob.right(90)
+        billbob.forward(100)
+        billbob.left(90)
+        billbob.forward(100)
+        billbob.right(90)
+        billbob.forward(100)
+        billbob.back(100)
+        billbob.right(90)
+        billbob.forward(200)
+        billbob.right(90)
+        billbob.forward(100)
+
+    def draw_star():
+        x = 1
+        billbob.width(1)
+        billbob.speed(9000)
+        while x < 200:
+            r = randint(0,255)
+            g = randint(0,255)
+            b = randint(0,255)
+
+            colormode(255)
+
+            pencolor(r,g,b)
+
+            billbob.color(r, g, b)
+            billbob.fd(50 + x)
+            billbob.rt(90.911)
+
+            x = x+1
+            
+    def draw_twirly_wirly():
+          billbob.width(1)
+          billbob.pencolor("white")
+          x = 0
+          billbob.penup()
+
+          billbob.rt(45)
+          billbob.fd(90)
+          billbob.rt(135)
+
+          billbob.pendown()
+          billbob.speed(9000)
+          while x < 120:
+                billbob.fd(200)     
+                billbob.rt(61)
+                billbob.fd(200)
+                billbob.rt(61)
+                billbob.fd(200)
+                billbob.rt(61)
+                billbob.fd(200)
+                billbob.rt(61)
+                billbob.fd(200)
+                billbob.rt(61)
+                billbob.fd(200)
+                billbob.rt(61)
+
+                billbob.rt(11.1111)
+
+                x = x + 1
 
     onkey(up, "Up")
     onkey(left, "Left")
     onkey(right, "Right")
     onkey(back, "Down")
-    onkey(quitTurtles, "Escape")
     onkey(changeColor1, "F1")
     onkey(changeColor2, "F2")
     onkey(changeColor3, "F3")
@@ -202,7 +294,14 @@ elif version == "controlled":
     onkey(changeColor5, "F5")
     onkey(changeColor6, "F6")
     onkey(changeColor7, "F7")
-
+    onkey(changeColor8, "F8")
+    onkey(changeColor9, "F9")
+    onkey(changeColor10, "F10")
+    onkey(changeColor11, "F11")
+    onkey(changeColor12, "F12")
+    onkey(draw_square, "Tab")
+    onkey(draw_star, "Delete")
+    onkey(draw_twirly_wirly, "Insert")
     listen()
     mainloop()
 
